@@ -1,0 +1,40 @@
+class Bala {
+  
+  //Atributos
+  
+  Body body;
+  float x;
+  float y;
+  float w;
+  float h;
+  
+  // Parámetros del método de consturcción de clase.
+  
+  Bala (float x_, float y_){
+    
+     // Parámetros del método de construcción se asignan como valores de atributos.
+    x = x_;
+    y = y_;
+    w = 10;
+    h = 10;
+    
+  // Define the body.
+    BodyDef bd = new BodyDef();
+    bd.type = BodyType.DYNAMIC;
+    bd.position.set(box2d.coordPixelsToWorld(x,y));
+  
+  //Create the body.  
+    body = box2d.createBody(bd);
+   
+  // Create the shape.
+    PolygonShape ps = new PolygonShape();
+     
+    float box2Dw= box2d.scalarPixelsToWorld(w/2);
+    float box2Dh = box2d.scalarPixelsToWorld(h/2);
+    
+    ps.setAsBox(box2Dw, box2Dh);
+  }
+  
+  
+  
+}
